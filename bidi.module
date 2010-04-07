@@ -52,7 +52,7 @@ function bidi_unicode_cleanup_rtl($data) {
   preg_match_all("!$explicits!",  $data, $m1, PREG_OFFSET_CAPTURE | PREG_SET_ORDER);
   preg_match_all("!$pdf!",  $data, $m2, PREG_OFFSET_CAPTURE | PREG_SET_ORDER);
 
-  if (count($m1) || count($m2)){
+  if (count($m1) || count($m2)) {
 
     $p = array();
     foreach ($m1 as $m) {
