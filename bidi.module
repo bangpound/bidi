@@ -98,6 +98,7 @@ function bidi_unicode_cleanup_rtl($data) {
  */
 function bidi_form_alter(&$form, &$form_state, $form_id) {
   if (isset($form['type']) && isset($form['#node']) && $form['type']['#value'] .'_node_form' == $form_id) {
+    drupal_set_html_head('<script type="text/javascript">CLOSURE_BASE_PATH="'. base_path() . libraries_get_path('closure_library') .'/closure/goog/";</script>'."\n");
     drupal_add_js(libraries_get_path('closure_library') .'/closure/goog/base.js');
     drupal_add_js(drupal_get_path('module', 'bidi') .'/bidi.rtlButtons.js');
   }

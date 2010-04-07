@@ -1,7 +1,6 @@
-goog.require('goog.dom');
+goog.require('goog.i18n.bidi');
 
-function sayHi() {
-  var newHeader = goog.dom.createDom('h1', {'style': 'background-color:#EEE'},
-    'Hello world!');
-  goog.dom.appendChild(document.body, newHeader);
-}
+Drupal.behaviors.bidiRtlButtons = function (context) {
+  $body = $('#edit-body-wrapper', context);
+
+};
