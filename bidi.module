@@ -24,7 +24,7 @@ function bidi_filter($op, $delta = 0, $format = -1, $text = '', $cache_id = 0) {
       return $text;
 
     case 'process':
-      if ($delta = 0) {
+      if ($delta == 0) {
         $text = bidi_unicode_cleanup_rtl($text);
       }
       return $text;
