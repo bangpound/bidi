@@ -4,7 +4,7 @@ goog.require('goog.i18n.bidi');
 goog.require('goog.dom.Range');
 goog.require('goog.dom.selection');
 
-Drupal.behaviors.bidiRtlButtons = function (context) {
+Drupal.behaviors.bidiButtons = function (context) {
   var $body, makeSwitcher;
 
   makeSwitcher = function (element, direction) {
