@@ -14,7 +14,14 @@ Drupal.behaviors.bidiButtons = function (context) {
       method = 'enforce' + direction + 'InText';
 
       selection = goog.dom.selection.getText(element);
-      text = goog.i18n.bidi[method](selection);
+
+      if (selection.length > 0) {
+        text = goog.i18n.bidi[method](selection);
+      }
+      else {
+        text = (direction === 'Rtl') ? goog.i18n.bidi.Format.RLM : goog.i18n.bidi.Format.LRM;
+      }
+
       goog.dom.selection.setText(element, text);
 
       return false;
