@@ -13,11 +13,15 @@ function bidi_filter($op, $delta = 0, $format = -1, $text = '', $cache_id = 0) {
     case 'list':
       return array(
         0 => t('Cleanup RTL'),
+        1 => t('Encode LRM and RLM'),
       );
 
     case 'description':
       if ($delta == 0) {
         return t('Assures that all explicit markers of text direction are matched with a Pop-Directional-Formatting.');
+      }
+      if ($delta == 1) {
+        return t('Encodes Unicode right-to-left mark (RLM) and left-to-right mark (LRM) as HTML entities.');
       }
 
     case 'prepare':
@@ -26,6 +30,9 @@ function bidi_filter($op, $delta = 0, $format = -1, $text = '', $cache_id = 0) {
     case 'process':
       if ($delta == 0) {
         $text = bidi_unicode_cleanup_rtl($text);
+      }
+      if ($delta == 1) {
+        $text = str_replace(array("\xE2\x80\x8E", "\xE2\x80\x8F"), array('&lrm;', '&rlm;'), $text);
       }
       return $text;
   }
