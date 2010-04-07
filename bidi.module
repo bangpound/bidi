@@ -1,0 +1,35 @@
+<?php
+// $Id$
+/**
+ * @file bidi.module
+ * TODO: Enter file description here.
+ */
+
+/**
+ * Implementation of hook_filter().
+ */
+function bidi_filter($op, $delta = 0, $format = -1, $text = '', $cache_id = 0) {
+  switch ($op) {
+    case 'list':
+      return array(t('TODO: Fill in name of filter.'));
+
+    case 'description':
+      return t('TODO: Fill in filter description.');
+
+    case 'no cache':
+      // TODO: This case can be removed for most filters, but returning TRUE is useful for development.
+      return FALSE;
+
+    case 'prepare':
+      return $text;
+
+    case 'process':
+      // TODO: Code function call for filter to run text through.
+      return;
+
+    case 'settings':
+      // OPTIONAL: Add additional settings for filter.
+      return;
+  }
+}
+

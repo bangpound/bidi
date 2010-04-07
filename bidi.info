@@ -1,0 +1,4 @@
+; $Id$
+name = Bidi
+description = TODO: Description of module
+core = 6.x
