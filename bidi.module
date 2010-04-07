@@ -92,3 +92,13 @@ function bidi_unicode_cleanup_rtl($data) {
 
   return $data;
 }
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function bidi_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['type']) && isset($form['#node']) && $form['type']['#value'] .'_node_form' == $form_id) {
+    drupal_add_js(libraries_get_path('closure_library') .'/closure/goog/base.js');
+    drupal_add_js(drupal_get_path('module', 'bidi') .'/bidi.rtlButtons.js');
+  }
+}
