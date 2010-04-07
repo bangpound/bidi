@@ -5,7 +5,7 @@ goog.require('goog.dom.Range');
 goog.require('goog.dom.selection');
 
 Drupal.behaviors.bidiButtons = function (context) {
-  var $body, makeSwitcher;
+  var makeSwitcher;
 
   makeSwitcher = function (element, direction) {
     return function () {
@@ -21,17 +21,11 @@ Drupal.behaviors.bidiButtons = function (context) {
     };
   };
 
-  $body = $('#edit-body-wrapper', context);
-
-  $body
+  $('#edit-body-wrapper', context)
     .prepend(
       $('<button>RTL</button>').click(makeSwitcher($('#edit-body')[0], 'Rtl'))
     )
     .prepend(
       $('<button>LTR</button>').click(makeSwitcher($('#edit-body')[0], 'Ltr'))
     );
-
-  $('textarea', $body).each(function () {
-    goog.i18n.bidi.setElementDirAndAlign(this, goog.i18n.bidi.detectRtlDirectionality($(this).val()));
-  });
 };
